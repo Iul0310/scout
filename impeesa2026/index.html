@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B模組活動規劃｜牛角村 × 海邊</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --green: #1a6b4a;
+    --green-light: #e8f4ee;
+    --green-mid: #2d8a60;
+    --blue: #1a4a6b;
+    --blue-light: #e8f0f4;
+    --amber: #8a5a1a;
+    --amber-light: #fdf3e3;
+    --coral: #8a2a1a;
+    --coral-light: #fdecea;
+    --gray: #4a4a4a;
+    --gray-light: #f5f5f3;
+    --border: #ddd;
+    --text: #2a2a2a;
+    --text-muted: #666;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #fafaf8;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── TOP NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 2px solid var(--green);
+    z-index: 100;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav .brand {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--green);
+    white-space: nowrap;
+    padding: 14px 1.5rem 14px 0;
+    border-right: 1px solid var(--border);
+    margin-right: 1rem;
+  }
+  nav a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 16px 14px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all .2s;
+  }
+  nav a:hover { color: var(--green); border-bottom-color: var(--green-mid); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green);
+    color: #fff;
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .7;
+    margin-bottom: .75rem;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    line-height: 1.3;
+  }
+  .hero p {
+    font-size: 14px;
+    opacity: .8;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    padding: 4px 14px;
+    border-radius: 99px;
+    font-size: 12px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ── SECTION ── */
+  section { margin-bottom: 3.5rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    padding-bottom: .75rem;
+    border-bottom: 2px solid var(--green-light);
+  }
+  .section-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .section-header small {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: .5rem;
+    color: var(--text);
+  }
+  .card-body { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+  .card.green-accent { border-left: 4px solid var(--green); }
+  .card.blue-accent { border-left: 4px solid var(--blue); }
+  .card.amber-accent { border-left: 4px solid var(--amber); }
+  .card.coral-accent { border-left: 4px solid var(--coral); }
+
+  /* ── TIMING TABLE ── */
+  .timing-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .timing-table th {
+    background: var(--green);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .timing-table th:first-child { border-radius: 8px 0 0 0; }
+  .timing-table th:last-child { border-radius: 0 8px 0 0; }
+  .timing-table td { padding: 10px 14px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .timing-table tr:last-child td { border-bottom: none; }
+  .timing-table tr:nth-child(even) td { background: #fafaf8; }
+  .timing-table .time-cell { font-weight: 700; color: var(--green); white-space: nowrap; }
+  .timing-table .dur-cell { color: var(--text-muted); font-size: 13px; white-space: nowrap; }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .flow-time {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .flow-cell {
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: .75rem 1rem;
+    font-size: 13px;
+    position: relative;
+    margin: 2px;
+    border-radius: 6px;
+  }
+  .flow-cell.a { background: var(--green-light); border-color: #b8d9c8; }
+  .flow-cell.b { background: var(--blue-light); border-color: #b8c8d9; }
+  .flow-cell.both {
+    grid-column: 2 / 4;
+    background: var(--amber-light);
+    border-color: #e0c8a0;
+    text-align: center;
+  }
+  .flow-cell-label { font-size: 10px; font-weight: 700; letter-spacing: .05em; opacity: .6; margin-bottom: 2px; }
+  .flow-arrow { text-align: center; padding: 4px 0; font-size: 18px; color: var(--text-muted); grid-column: 1 / 4; }
+
+  /* ── TWO COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 99px;
+    letter-spacing: .03em;
+  }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-blue { background: var(--blue-light); color: var(--blue); }
+  .badge-amber { background: var(--amber-light); color: var(--amber); }
+  .badge-coral { background: var(--coral-light); color: var(--coral); }
+  .badge-gray { background: var(--gray-light); color: var(--gray); }
+
+  /* ── BOT CONVERSATION ── */
+  .chat-window {
+    background: #ece9e0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .chat-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: .75rem;
+    padding-left: 4px;
+  }
+  .chat-msg { margin-bottom: .75rem; display: flex; flex-direction: column; }
+  .chat-msg.user { align-items: flex-end; }
+  .chat-msg.bot { align-items: flex-start; }
+  .chat-bubble {
+    max-width: 85%;
+    padding: .6rem .9rem;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+  }
+  .chat-msg.user .chat-bubble { background: #1a6b4a; color: #fff; border-radius: 14px 14px 4px 14px; }
+  .chat-msg.bot .chat-bubble { background: #fff; color: var(--text); border-radius: 14px 14px 14px 4px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .chat-sender { font-size: 11px; color: var(--text-muted); margin-bottom: 3px; padding: 0 4px; }
+
+  /* ── LETTER ── */
+  .letter-box {
+    background: #fffdf5;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    font-family: 'Noto Serif TC', serif;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .letter-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: 10px 10px 0 0;
+  }
+  .letter-box.green::before { background: var(--green); }
+  .letter-box.blue::before { background: var(--blue); }
+  .letter-title {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .letter-box p { font-size: 14px; margin-bottom: .75rem; line-height: 1.85; }
+  .letter-box em { color: var(--green); font-style: normal; }
+
+  /* ── KNOWLEDGE CARD ── */
+  .know-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .know-card-head {
+    padding: .6rem 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .know-card-body { padding: 1rem 1.1rem; font-size: 13px; line-height: 1.75; }
+  .know-card-body strong { font-weight: 700; }
+  .know-card-body .note {
+    margin-top: .75rem;
+    padding: .5rem .75rem;
+    background: var(--gray-light);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ── ROUTE ── */
+  .route-steps { list-style: none; }
+  .route-step {
+    display: flex;
+    gap: 14px;
+    padding: .75rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  .route-step:last-child { border-bottom: none; }
+  .route-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .route-step-content { flex: 1; }
+  .route-step-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+  .route-step-body { font-size: 13px; color: var(--text-muted); }
+
+  /* ── STATION GRID ── */
+  .stations { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 580px) { .stations { grid-template-columns: 1fr; } }
+  .station-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .station-head {
+    padding: .6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .station-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .station-body { padding: .75rem 1rem; font-size: 12px; line-height: 1.7; color: var(--text-muted); }
+  .station-body strong { color: var(--text); font-weight: 700; }
+
+  /* ── TRIGGER TABLE ── */
+  .trigger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .trigger-table th { background: #f0f0ee; padding: 8px 12px; text-align: left; font-weight: 700; font-size: 12px; color: var(--gray); }
+  .trigger-table td { padding: 9px 12px; border-bottom: 1px solid #eee; }
+  .trigger-table tr:last-child td { border-bottom: none; }
+  .trigger-table .kw {
+    font-family: monospace;
+    background: #f0f0ee;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* ── RISK TABLE ── */
+  .risk-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .risk-table th { background: #f8f0ee; padding: 8px 12px; text-align: left; font-weight: 700; font-size: 12px; color: var(--coral); }
+  .risk-table td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .risk-table tr:last-child td { border-bottom: none; }
+
+  /* ── NOTICE BOX ── */
+  .notice {
+    background: var(--amber-light);
+    border: 1px solid #e0c896;
+    border-radius: 8px;
+    padding: .85rem 1.1rem;
+    font-size: 13px;
+    color: var(--amber);
+    margin-bottom: 1rem;
+  }
+
+  /* ── SDG TAG ── */
+  .sdg-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: .75rem; }
+  .sdg-tag {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid #e0e0de;
+    margin: 1.5rem 0;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    nav { display: none; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="brand">B模組規劃文件</div>
+  <a href="#overview">總覽</a>
+  <a href="#timing">時間規劃</a>
+  <a href="#flow">完整流程圖</a>
+  <a href="#letter">指示信</a>
+  <a href="#bot">LINE Bot 腳本</a>
+  <a href="#routes">行進路線</a>
+  <a href="#stations">踏查站點</a>
+  <a href="#beach">海邊模組</a>
+  <a href="#risk">風險檢核</a>
+  <a href="#pending" style="color:#8a5a1a;border-bottom-color:transparent">⚠ 待確認事項</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">童軍暨戶外教育活動 ｜ B模組設計文件</div>
+  <h1>牛角村 × 海邊<br>活動完整規劃</h1>
+  <p>文化踏查 × SUP × 淨灘 × SDGs × 指示信 × LINE Bot 全流程</p>
+  <div style="display:flex;gap:16px;justify-content:center;margin-bottom:1.25rem;flex-wrap:wrap">
+    <div style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:.6rem 1.25rem;text-align:center">
+      <div style="font-size:10px;opacity:.7;letter-spacing:.08em;margin-bottom:3px">上午場</div>
+      <div style="font-size:1.3rem;font-weight:700;font-family:'Noto Serif TC',serif">8:30 – 12:00</div>
+      <div style="font-size:11px;opacity:.75;margin-top:2px">活動 8:30–11:30 ／ 緩衝至 12:00</div>
+    </div>
+    <div style="display:flex;align-items:center;font-size:1.2rem;opacity:.5">／</div>
+    <div style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:.6rem 1.25rem;text-align:center">
+      <div style="font-size:10px;opacity:.7;letter-spacing:.08em;margin-bottom:3px">下午場</div>
+      <div style="font-size:1.3rem;font-weight:700;font-family:'Noto Serif TC',serif">13:00 – 16:30</div>
+      <div style="font-size:11px;opacity:.75;margin-top:2px">活動 13:00–16:00 ／ 緩衝至 16:30</div>
+    </div>
+  </div>
+  <div class="hero-tags">
+    <span class="hero-tag">📅 7 月 3 日</span>
+    <span class="hero-tag">每場 3 小時</span>
+    <span class="hero-tag">AB組互換制</span>
+    <span class="hero-tag">無人力駐守站點</span>
+    <span class="hero-tag">SDG 11 × SDG 14</span>
+    <span class="hero-tag">出發地：介壽國中小</span>
+  </div>
+</div>
+
+<main>
+
+<!-- ① 總覽 -->
+<section id="overview">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f4ee">🗺</div>
+    <div>
+      <h2>模組總覽</h2>
+      <small>B模組的架構與設計邏輯</small>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card green-accent">
+      <div class="card-title">🏘 牛角村（A組先）</div>
+      <div class="card-body">
+        閩東石頭屋建築觀察、廟宇風火山牆、做出幼成年禮文化認識、剪花工藝體驗、SDGs 社區共生反思。<br><br>
+        採<strong>指示信 + LINE Bot</strong>自主踏查，無人力駐守。
+        <div class="sdg-tags">
+          <span class="sdg-tag" style="background:#e8f4ee;color:#1a6b4a">SDG 11 永續城鄉</span>
+          <span class="sdg-tag" style="background:#fdf3e3;color:#8a5a1a">SDG 4 優質教育</span>
+        </div>
+      </div>
+    </div>
+    <div class="card blue-accent">
+      <div class="card-title">🏄 海邊（B組先）</div>
+      <div class="card-body">
+        SUP立槳體驗 + 淨灘環境行動。兩者採互換制，每項各約20-22分鐘。專業教師主導水上安全，我們負責大時間節點與移動引導。
+        <div class="sdg-tags">
+          <span class="sdg-tag" style="background:#e8f0f4;color:#1a4a6b">SDG 14 海洋生態</span>
+          <span class="sdg-tag" style="background:#e8f4ee;color:#1a6b4a">SDG 13 氣候行動</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice">
+    📍 <strong>地理關係確認</strong>：牛角聚落（復興村）本身擁有澳口沙灘，SUP與淨灘的地點即為牛角聚落旁的沙灘。兩個子模組在同一地理區域，A組在村內踏查、B組在旁邊沙灘活動，互換移動距離約 5 分鐘步行。<br>
+    ⚠️ 請實地確認確切集合點、入水點位置，以便修正Bot指引中的地標描述。
+  </div>
+
+  <div class="card">
+    <div class="card-title">設計核心原則</div>
+    <div class="card-body">
+      <strong>指示信（紙本）</strong>= 學習內容承載體，不依賴網路，是核心。<br>
+      <strong>LINE Bot（數位）</strong>= 所有移動導航 + 問答確認 + 計時提醒，涵蓋全程。<br>
+      <strong>備援原則</strong>= 網路不穩時，所有任務可用紙本完成，Bot只是強化體驗，不是活動命脈。
+    </div>
+  </div>
+</section>
+
+<!-- ② 時間規劃 -->
+<section id="timing">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fdf3e3">⏱</div>
+    <div>
+      <h2>時間規劃</h2>
+      <small>7/3 上午場 8:30–12:00 ／ 下午場 13:00–16:30，每場活動本體 3 小時</small>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
+    <div style="background:#e8f4ee;border:1px solid #b8d9c8;border-radius:8px;padding:.5rem 1rem;font-size:13px">
+      <span style="font-weight:700;color:#1a6b4a">上午場</span>
+      <span style="color:#666;margin-left:8px">8:30 開始 → 11:30 返校（緩衝至 12:00）</span>
+    </div>
+    <div style="background:#e8f0f4;border:1px solid #b8c8d9;border-radius:8px;padding:.5rem 1rem;font-size:13px">
+      <span style="font-weight:700;color:#1a4a6b">下午場</span>
+      <span style="color:#666;margin-left:8px">13:00 開始 → 16:00 返校（緩衝至 16:30）</span>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="timing-table">
+      <thead>
+        <tr>
+          <th style="width:60px">累計</th>
+          <th style="width:95px;background:#2d5a3d">上午場時間</th>
+          <th style="width:95px;background:#2d4a5a">下午場時間</th>
+          <th>階段</th>
+          <th>A組動態</th>
+          <th>B組動態</th>
+          <th style="width:58px">時長</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-cell">T+0</td>
+          <td style="font-weight:700;color:#1a6b4a;white-space:nowrap">8:30</td>
+          <td style="font-weight:700;color:#1a4a6b;white-space:nowrap">13:00</td>
+          <td>說明會</td>
+          <td colspan="2" style="text-align:center;color:#666">全體於介壽國中小進行說明、分組、發指示信、LINE Bot 啟動測試</td>
+          <td class="dur-cell">30 min</td>
+        </tr>
+        <tr>
+          <td class="time-cell">T+30</td>
+          <td style="font-weight:700;color:#1a6b4a">9:00</td>
+          <td style="font-weight:700;color:#1a4a6b">13:30</td>
+          <td>出發移動</td>
+          <td style="color:#1a6b4a">→ 牛角村<br><small>沿主幹道步行</small></td>
+          <td style="color:#1a4a6b">→ 牛角沙灘<br><small>同方向、稍遠</small></td>
+          <td class="dur-cell">20 min</td>
+        </tr>
+        <tr>
+          <td class="time-cell">T+50</td>
+          <td style="font-weight:700;color:#1a6b4a">9:20</td>
+          <td style="font-weight:700;color:#1a4a6b">13:50</td>
+          <td><strong>第一輪活動</strong></td>
+          <td style="color:#1a6b4a">🏘 村落踏查<br><small>5站自主探索</small></td>
+          <td style="color:#1a4a6b">🏄 SUP + 淨灘<br><small>教師帶領</small></td>
+          <td class="dur-cell">50 min</td>
+        </tr>
+        <tr>
+          <td class="time-cell">T+100</td>
+          <td style="font-weight:700;color:#8a5a1a">10:10</td>
+          <td style="font-weight:700;color:#8a5a1a">14:40</td>
+          <td>互換移動</td>
+          <td style="color:#1a6b4a">村子 → 沙灘<br><small>步行約5 min</small></td>
+          <td style="color:#1a4a6b">沙灘 → 村子<br><small>步行約5 min</small></td>
+          <td class="dur-cell">10 min</td>
+        </tr>
+        <tr>
+          <td class="time-cell">T+110</td>
+          <td style="font-weight:700;color:#1a6b4a">10:20</td>
+          <td style="font-weight:700;color:#1a4a6b">14:50</td>
+          <td><strong>第二輪活動</strong></td>
+          <td style="color:#1a4a6b">🏄 SUP + 淨灘<br><small>教師帶領</small></td>
+          <td style="color:#1a6b4a">🏘 村落踏查<br><small>5站自主探索</small></td>
+          <td class="dur-cell">50 min</td>
+        </tr>
+        <tr>
+          <td class="time-cell">T+160</td>
+          <td style="font-weight:700;color:#8a5a1a">11:10</td>
+          <td style="font-weight:700;color:#8a5a1a">15:40</td>
+          <td>集合 + 回程</td>
+          <td colspan="2" style="text-align:center;color:#666">兩組於澳口集合點確認人數，Bot觸發回程指令，步行返校</td>
+          <td class="dur-cell">20 min</td>
+        </tr>
+        <tr>
+          <td class="time-cell">T+180</td>
+          <td style="font-weight:700;color:#1a6b4a">11:30</td>
+          <td style="font-weight:700;color:#1a4a6b">16:00</td>
+          <td>返抵學校</td>
+          <td colspan="2" style="text-align:center;color:#666">回到介壽國中小，輸入安全抵達確認</td>
+          <td class="dur-cell">—</td>
+        </tr>
+        <tr style="background:#f5f5f3">
+          <td style="color:#bbb;font-size:12px;padding:8px 14px">緩衝</td>
+          <td style="font-size:12px;color:#bbb;padding:8px 14px">11:30–12:00</td>
+          <td style="font-size:12px;color:#bbb;padding:8px 14px">16:00–16:30</td>
+          <td colspan="4" style="font-size:12px;color:#bbb;padding:8px 14px">備用緩衝時間（延誤吸收、集合整隊、學員返回後集中）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size:12px;color:#999;margin-top:.5rem;padding-left:4px">
+    ⚠️ 互換移動保留10分鐘（實際步行約5分鐘），另5分鐘為換場緩衝與清點人數。每場活動本體結束後各預留30分鐘緩衝。
+  </p>
+</section>
+
+<!-- ③ 完整流程圖 -->
+<section id="flow">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f0f4">🔄</div>
+    <div>
+      <h2>全程移動流程圖</h2>
+      <small>從介壽國中小出發到返回的完整動線（左欄顯示上午場 / 下午場真實時間）</small>
+    </div>
+  </div>
+
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:520px">
+    <thead>
+      <tr>
+        <th style="width:110px;background:#f5f5f3;padding:8px 12px;text-align:center;font-weight:500;color:#999;border-bottom:1px solid #ddd;font-size:12px">上午場 ／ 下午場</th>
+        <th style="background:#e8f4ee;padding:8px 12px;text-align:center;color:#1a6b4a;font-weight:700;border-bottom:1px solid #b8d9c8">A組（先村後海）</th>
+        <th style="background:#e8f0f4;padding:8px 12px;text-align:center;color:#1a4a6b;font-weight:700;border-bottom:1px solid #b8c8d9">B組（先海後村）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:10px 12px;text-align:center;background:#f9faf8;border-bottom:1px solid #eee">
+          <div style="font-weight:700;color:#1a6b4a;font-size:14px">8:30</div>
+          <div style="color:#1a4a6b;font-weight:700;font-size:14px">13:00</div>
+          <div style="font-size:10px;color:#bbb;margin-top:2px">T+0</div>
+        </td>
+        <td colspan="2" style="padding:10px 12px;text-align:center;background:#fffdf5;border-bottom:1px solid #eee;color:#8a5a1a;font-weight:500">📋 說明會・分組・指示信發放・LINE Bot 啟動（30 min）</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;text-align:center;background:#f9faf8;border-bottom:1px solid #eee">
+          <div style="font-weight:700;color:#1a6b4a;font-size:14px">9:00</div>
+          <div style="color:#1a4a6b;font-weight:700;font-size:14px">13:30</div>
+          <div style="font-size:10px;color:#bbb;margin-top:2px">T+30</div>
+        </td>
+        <td style="padding:10px 12px;text-align:center;background:#f0f8f4;border-bottom:1px solid #cce4d8;color:#1a6b4a">
+          🚶 出發 → 牛角村<br>
+          <span style="font-size:11px;color:#666">Bot導航：沿主幹道，聞到酒香轉進小巷</span>
+        </td>
+        <td style="padding:10px 12px;text-align:center;background:#f0f4f8;border-bottom:1px solid #c8d8e4;color:#1a4a6b">
+          🚶 出發 → 牛角沙灘<br>
+          <span style="font-size:11px;color:#666">Bot導航：同方向走，經酒廠後繼續往海邊</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;text-align:center;background:#f9faf8;border-bottom:1px solid #eee">
+          <div style="font-weight:700;color:#1a6b4a;font-size:14px">9:20</div>
+          <div style="color:#1a4a6b;font-weight:700;font-size:14px">13:50</div>
+          <div style="font-size:10px;color:#bbb;margin-top:2px">T+50</div>
+        </td>
+        <td style="padding:10px 12px;background:#e8f4ee;border-bottom:1px solid #b8d9c8">
+          <div style="font-weight:700;color:#1a6b4a;margin-bottom:4px">🏘 牛角村踏查（50 min）</div>
+          <div style="font-size:12px;color:#444">5站自主探索：閩東建築／廟宇／做出幼／剪花／SDGs社區觀察</div>
+          <div style="font-size:11px;color:#999;margin-top:4px">上午結束：10:10 ／ 下午結束：14:40</div>
+        </td>
+        <td style="padding:10px 12px;background:#e8f0f4;border-bottom:1px solid #b8c8d9">
+          <div style="font-weight:700;color:#1a4a6b;margin-bottom:4px">🏄 海邊活動（50 min）</div>
+          <div style="font-size:12px;color:#444">SUP立槳（約20 min）↔ 淨灘記錄（約20 min），教師帶領</div>
+          <div style="font-size:11px;color:#999;margin-top:4px">上午結束：10:10 ／ 下午結束：14:40</div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;text-align:center;background:#f9faf8;border-bottom:1px solid #eee">
+          <div style="font-weight:700;color:#8a5a1a;font-size:14px">10:10</div>
+          <div style="color:#8a5a1a;font-weight:700;font-size:14px">14:40</div>
+          <div style="font-size:10px;color:#bbb;margin-top:2px">T+100</div>
+        </td>
+        <td colspan="2" style="padding:10px 12px;text-align:center;background:#fdf3e3;border-bottom:1px solid #e0c896;color:#8a5a1a;font-weight:500">
+          🔄 互換移動（10 min）<br>
+          <span style="font-size:11px;font-weight:400">A組：村子 → 沙灘 ｜ B組：沙灘 → 村子，步行各約5分鐘，剩餘時間清點人數</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;text-align:center;background:#f9faf8;border-bottom:1px solid #eee">
+          <div style="font-weight:700;color:#1a6b4a;font-size:14px">10:20</div>
+          <div style="color:#1a4a6b;font-weight:700;font-size:14px">14:50</div>
+          <div style="font-size:10px;color:#bbb;margin-top:2px">T+110</div>
+        </td>
+        <td style="padding:10px 12px;background:#e8f0f4;border-bottom:1px solid #b8c8d9">
+          <div style="font-weight:700;color:#1a4a6b;margin-bottom:4px">🏄 海邊活動（50 min）</div>
+          <div style="font-size:12px;color:#444">SUP立槳（約20 min）↔ 淨灘記錄（約20 min），教師帶領</div>
+          <div style="font-size:11px;color:#999;margin-top:4px">上午結束：11:10 ／ 下午結束：15:40</div>
+        </td>
+        <td style="padding:10px 12px;background:#e8f4ee;border-bottom:1px solid #b8d9c8">
+          <div style="font-weight:700;color:#1a6b4a;margin-bottom:4px">🏘 牛角村踏查（50 min）</div>
+          <div style="font-size:12px;color:#444">5站自主探索：閩東建築／廟宇／做出幼／剪花／SDGs社區觀察</div>
+          <div style="font-size:11px;color:#999;margin-top:4px">上午結束：11:10 ／ 下午結束：15:40</div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;text-align:center;background:#f9faf8;border-bottom:1px solid #eee">
+          <div style="font-weight:700;color:#8a5a1a;font-size:14px">11:10</div>
+          <div style="color:#8a5a1a;font-weight:700;font-size:14px">15:40</div>
+          <div style="font-size:10px;color:#bbb;margin-top:2px">T+160</div>
+        </td>
+        <td colspan="2" style="padding:10px 12px;text-align:center;background:#fffdf5;border-bottom:1px solid #eee;color:#8a5a1a;font-weight:500">📍 澳口集合點集合・確認人數・統一回程（20 min）</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 12px;text-align:center;background:#f9faf8;border-bottom:1px solid #eee">
+          <div style="font-weight:700;color:#1a6b4a;font-size:14px">11:30</div>
+          <div style="color:#1a4a6b;font-weight:700;font-size:14px">16:00</div>
+          <div style="font-size:10px;color:#bbb;margin-top:2px">T+180</div>
+        </td>
+        <td colspan="2" style="padding:10px 12px;text-align:center;background:#e8f4ee;color:#1a6b4a;font-weight:700">🏫 返抵介壽國中小</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;text-align:center;background:#f5f5f3">
+          <div style="font-size:12px;color:#bbb">11:30–12:00</div>
+          <div style="font-size:12px;color:#bbb">16:00–16:30</div>
+        </td>
+        <td colspan="2" style="padding:8px 12px;background:#f5f5f3;text-align:center;font-size:12px;color:#bbb">
+          備用緩衝 30 min（延誤吸收 / 集合整隊 / 返回後集中）
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ④ 指示信 -->
+<section id="letter">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fdf3e3">✉️</div>
+    <div>
+      <h2>指示信內容設計</h2>
+      <small>A組（綠色封蠟）× B組（藍色封蠟）</small>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>信封設計原則：</strong>外觀以顏色區分組別（A組綠、B組藍），正面印有隊伍代號與「說明會結束後方可開封」。每個信封內裝：①任務委託書 ②組別專屬知識卡 ③空白路線記錄表（A組附）或淨灘記錄表（B組附）。
+  </div>
+
+  <!-- 共用委託書 -->
+  <div class="card-title" style="margin-bottom:.75rem">📋 共用：任務委託書（兩組相同）</div>
+  <div class="letter-box green">
+    <div class="letter-title">任務委託書 ｜建議以手寫字體排版印刷</div>
+    <p>研究員，你好。</p>
+    <p>你們今天要前往的是同一個地方——南竿東北角的<em>牛角聚落</em>。</p>
+    <p>這裡曾是馬祖第一大村，石頭屋倚山而建，澳口停泊了兩百多艘漁船。後來，縣政府搬走了，年輕人走了，漁獲也少了，村子就靜了下來。</p>
+    <p>但你們的任務不同：有人走進村子，記錄石頭屋的記憶；有人走向海邊，與海洋建立連結。50分鐘後，你們會互換位置。</p>
+    <p>兩組人各自帶著不同的眼睛看同一個地方，最後我們把你們看見的拼在一起，才是完整的牛角。</p>
+    <p>打開你的組別手冊，加入 LINE Bot，等待出發指令。</p>
+    <p style="margin-top:1.5rem">—— 一位牛角的老居民 敬上</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- A組知識卡 -->
+  <div class="card-title" style="margin-bottom:.75rem">🟢 A組專屬：知識卡（共5張）+ 空白路線記錄表</div>
+
+  <div class="know-card">
+    <div class="know-card-head" style="background:#e8f4ee;color:#1a6b4a">
+      <span>知識卡 A｜閩東印章屋</span>
+      <span class="badge badge-gray">觀察型</span>
+    </div>
+    <div class="know-card-body">
+      <strong>你知道嗎？</strong>牛角聚落的石屋被稱為「印章屋」——因為方正的花崗岩外型就像一顆顆印章。先民用當地花崗岩堆砌，不需水泥，每一塊石頭都精心挑選，厚牆設計在馬祖的氣候下有重要功能。
+      <br><br>
+      <strong>觀察引導：</strong>找一棟老石屋，仔細看：石頭之間有沒有縫隙？牆壁為什麼那麼厚？屋頂的材質是什麼？
+      <div class="note">📱 回到Bot回答：「這種厚牆設計在馬祖氣候下能抵禦什麼？」（選擇題）</div>
+    </div>
+  </div>
+
+  <div class="know-card">
+    <div class="know-card-head" style="background:#fdecea;color:#8a2a1a">
+      <span>知識卡 B｜廟宇與風火山牆</span>
+      <span class="badge badge-gray">辨識型</span>
+    </div>
+    <div class="know-card-body">
+      <strong>你知道嗎？</strong>馬祖廟宇最獨特的是屋脊上的「風火山牆」——曲線起伏，如火焰燃燒隨風搖擺。這個設計原本是為了防止火災蔓延，成為閩東廟宇的標誌性特徵。
+      <br><br>
+      <strong>觀察引導：</strong>找到村子的廟，站在正面看屋頂。山牆有幾道波浪？正中央有什麼裝飾？與台灣本島的廟宇有何不同？
+      <div class="note">📱 回到Bot回答：「風火山牆的主要設計功能是什麼？」</div>
+    </div>
+  </div>
+
+  <div class="know-card">
+    <div class="know-card-head" style="background:#e8f0f4;color:#1a4a6b">
+      <span>知識卡 C｜做出幼：女性成年禮</span>
+      <span class="badge badge-gray">反思型</span>
+    </div>
+    <div class="know-card-body">
+      <strong>你知道嗎？</strong>「做出幼」是馬祖閩東文化中專屬女性的成年禮儀式。女孩滿16歲時，家人在廟中舉行祭儀，答謝神明，宴請親友，宣告她從「囝仔」正式成為「大人」。這個儀式與廟宇、家族、社區信仰緊密相連，是馬祖最珍貴的生命禮俗之一，體現了閩東社會對女性成年的集體見證。
+      <br><br>
+      <strong>思考引導：</strong>台灣本島有沒有類似的「成年標誌」？馬祖這個儀式的特別之處是什麼？儀式消失了，會損失什麼？
+      <div class="note">📱 回到Bot進行開放式分享，任何文字皆可回傳（不考知識點，考反思能力）</div>
+    </div>
+  </div>
+
+  <div class="know-card">
+    <div class="know-card-head" style="background:#fdf3e3;color:#8a5a1a">
+      <span>知識卡 D｜剪花工藝體驗</span>
+      <span class="badge badge-gray">體驗型</span>
+    </div>
+    <div class="know-card-body">
+      <strong>你知道嗎？</strong>剪花是閩東地區的傳統民俗工藝，常用於喜慶節慶的裝飾，以紅紙剪出吉祥圖案，象徵福氣與喜悅。
+      <br><br>
+      <strong>任務：</strong>前往指定自取站，取一份剪花半成品（預切輪廓），完成它，拍照傳給Bot。這是你對牛角的「印記」，請帶走。
+      <div class="note">📱 完成後拍照上傳Bot，或輸入「D完成」確認</div>
+    </div>
+  </div>
+
+  <div class="know-card">
+    <div class="know-card-head" style="background:#e8f4ee;color:#1a6b4a">
+      <span>知識卡 E｜SDG 11 社區共生觀察</span>
+      <span class="badge badge-gray">行動型</span>
+    </div>
+    <div class="know-card-body">
+      <strong>SDG 11：</strong>讓城市和聚落具有包容性、安全性、抵禦災害的能力，以及可持續性。
+      <br><br>
+      <strong>觀察任務：</strong>在村子裡找出「正在消失的東西」與「正在被保留的東西」各一個，拍照記錄。
+      <br><br>
+      例如：消失的——廢棄無人住的老屋；被保留的——修繕後轉型為咖啡館的古厝。
+      <div class="note">📱 上傳照片並用一句話寫感想，回程分享時使用</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- B組知識卡 -->
+  <div class="card-title" style="margin-bottom:.75rem">🔵 B組專屬：海洋知識卡（共2張）+ 淨灘記錄表</div>
+
+  <div class="know-card">
+    <div class="know-card-head" style="background:#e8f0f4;color:#1a4a6b">
+      <span>海洋知識卡 I｜SUP 立槳與海洋文化</span>
+      <span class="badge badge-gray">體驗型</span>
+    </div>
+    <div class="know-card-body">
+      <strong>你知道嗎？</strong>站立式划槳板（SUP）需要核心平衡與對浪的感知。在馬祖，這片海是漁民的家——牛角聚落極盛時期，這個澳口停泊了超過200艘漁船。
+      <br><br>
+      <strong>體驗引導：</strong>站上板子時，試著想：過去兩百艘漁船停在這裡的時候，這片海面是什麼感覺？漁民如何每天在這裡維生？
+      <br><br>
+      <strong>安全提醒：</strong>穿好救生衣、綁好腳繩、聽從教師指示，不可獨自靠近深水區。
+      <div class="note">📱 活動結束後輸入「SUP完成」確認</div>
+    </div>
+  </div>
+
+  <div class="know-card">
+    <div class="know-card-head" style="background:#e8f4ee;color:#1a6b4a">
+      <span>海洋知識卡 II｜淨灘 × SDG 14</span>
+      <span class="badge badge-gray">行動型</span>
+    </div>
+    <div class="know-card-body">
+      <strong>SDG 14：</strong>保育及永續利用海洋資源，防止並大幅減少各類海洋污染。
+      <br><br>
+      <strong>今天你的記錄會成為真實的環境數據。</strong>淨灘不只是撿垃圾——分類記錄才能找到污染源頭。用下方記錄表，仔細分類你找到的每一件垃圾。
+      <br><br>
+      <strong>思考引導：</strong>你找到的垃圾最多是哪一類？它最可能從哪裡來？如果你是政策制定者，你會從哪個源頭著手解決？
+      <div class="note">📱 淨灘完成後輸入「淨灘完成」，並將記錄表帶回分享</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">淨灘垃圾分類記錄表（印於B組指示信內）</div>
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:.5rem">
+      <thead>
+        <tr style="background:#e8f0f4">
+          <th style="padding:8px 10px;text-align:left;font-weight:700;color:#1a4a6b;border:1px solid #c8d8e4">垃圾類型</th>
+          <th style="padding:8px 10px;text-align:center;font-weight:700;color:#1a4a6b;border:1px solid #c8d8e4;width:60px">數量</th>
+          <th style="padding:8px 10px;text-align:left;font-weight:700;color:#1a4a6b;border:1px solid #c8d8e4">可能來源</th>
+          <th style="padding:8px 10px;text-align:left;font-weight:700;color:#1a4a6b;border:1px solid #c8d8e4">備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px 10px;border:1px solid #ddd">寶特瓶 / 塑膠容器</td><td style="padding:8px 10px;border:1px solid #ddd;text-align:center"></td><td style="padding:8px 10px;border:1px solid #ddd"></td><td style="padding:8px 10px;border:1px solid #ddd"></td></tr>
+        <tr style="background:#fafaf8"><td style="padding:8px 10px;border:1px solid #ddd">漁網 / 漁繩</td><td style="padding:8px 10px;border:1px solid #ddd;text-align:center"></td><td style="padding:8px 10px;border:1px solid #ddd"></td><td style="padding:8px 10px;border:1px solid #ddd"></td></tr>
+        <tr><td style="padding:8px 10px;border:1px solid #ddd">食品包裝 / 袋子</td><td style="padding:8px 10px;border:1px solid #ddd;text-align:center"></td><td style="padding:8px 10px;border:1px solid #ddd"></td><td style="padding:8px 10px;border:1px solid #ddd"></td></tr>
+        <tr style="background:#fafaf8"><td style="padding:8px 10px;border:1px solid #ddd">菸蒂</td><td style="padding:8px 10px;border:1px solid #ddd;text-align:center"></td><td style="padding:8px 10px;border:1px solid #ddd"></td><td style="padding:8px 10px;border:1px solid #ddd"></td></tr>
+        <tr><td style="padding:8px 10px;border:1px solid #ddd">玻璃 / 金屬</td><td style="padding:8px 10px;border:1px solid #ddd;text-align:center"></td><td style="padding:8px 10px;border:1px solid #ddd"></td><td style="padding:8px 10px;border:1px solid #ddd"></td></tr>
+        <tr style="background:#fafaf8"><td style="padding:8px 10px;border:1px solid #ddd">其他</td><td style="padding:8px 10px;border:1px solid #ddd;text-align:center"></td><td style="padding:8px 10px;border:1px solid #ddd"></td><td style="padding:8px 10px;border:1px solid #ddd"></td></tr>
+        <tr><td style="padding:8px 10px;border:1px solid #ddd;font-weight:700">合計</td><td style="padding:8px 10px;border:1px solid #ddd;text-align:center;font-weight:700"></td><td colspan="2" style="padding:8px 10px;border:1px solid #ddd;font-size:12px;color:#999">今天我發現最多的污染源是：＿＿＿＿＿</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ LINE Bot 腳本 -->
+<section id="bot">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f0f4">💬</div>
+    <div>
+      <h2>LINE Bot 完整腳本</h2>
+      <small>涵蓋全程所有移動：出發 → 踏查 → 互換 → 回程</small>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>技術說明：</strong>使用 LINE 官方帳號「關鍵字自動回覆」功能（無需寫程式）。關鍵字完全比對，觸發預設回覆文字。積分若需自動計算需額外開發；簡化版可改為帶隊者事後手動給分。
+  </div>
+
+  <!-- A組 BOT -->
+  <div class="card-title" style="margin-bottom:.75rem">🟢 A組完整流程（先村後海）</div>
+
+  <div class="chat-window">
+    <div class="chat-label">第一階段：出發導航（介壽國中小 → 牛角村）</div>
+    <div class="chat-msg user"><div class="chat-sender">A組學員</div><div class="chat-bubble">A隊 啟動</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ A組任務啟動——牛角踏查員！
+
+你們的目的地是一座倚山面海的石頭村落。
+
+🧭 行進指引：
+從介壽國中小正門出發，沿主幹道向東北方向步行，沿途你會聞到淡淡的酒香，那是馬祖酒廠的味道，代表你快到了。
+
+看到馬祖酒廠招牌後，從旁邊的小巷轉進去，就是牛角聚落入口。
+
+⏱ 預估步行：約 15–20 分鐘
+⚠️ 靠右行走，注意來車
+
+抵達村口後輸入：村口到</div></div>
+  </div>
+
+  <div class="chat-window">
+    <div class="chat-label">第二階段：踏查活動（50 min）</div>
+    <div class="chat-msg user"><div class="chat-sender">A組學員</div><div class="chat-bubble">村口到</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">🎉 進入踏查模式！共 5 站，順序不限，可分頭進行。
+
+🏠 A — 閩東建築（印章屋）
+🏛 B — 廟宇風火山牆
+🎋 C — 做出幼成年禮
+✂️ D — 剪花體驗站
+🌱 E — SDGs 社區觀察
+
+完成每站後回傳代號與答案
+全部完成後輸入：踏查完成</div></div>
+    <div class="chat-msg user"><div class="chat-sender">A組學員</div><div class="chat-bubble">A站 東北季風</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ A站完成！積分 +10
+
+正解！厚實的花崗岩牆能有效阻擋東北季風與海風鹽害，冬暖夏涼。這是先民因地制宜的智慧，不是裝飾，是生存。
+
+📌 彩蛋：牛角聚落被稱為「馬祖九份」，你有看出原因嗎？
+
+繼續完成其他站點！</div></div>
+    <div class="chat-msg user"><div class="chat-sender">A組學員</div><div class="chat-bubble">C站 做出幼感想：儀式讓整個社區一起見證，比台灣的成年禮更有共同體感</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ C站完成！積分 +10
+
+你說得很深刻。做出幼不只是個人的轉變，而是整個社區的集體見證——廟宇、家族、鄰里都參與其中。這種儀式感在快速現代化的社會裡越來越珍貴。
+
+延伸思考：如果這個儀式消失了，牛角村會損失什麼？</div></div>
+    <div class="chat-msg user"><div class="chat-sender">A組學員</div><div class="chat-bubble">踏查完成</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">🎖 A組踏查完成！
+
+現在是互換時間——換你們去海邊了！
+
+🔄 互換路線（村子 → 沙灘）：
+走出聚落往澳口方向，
+看到開闊的沙灘就是你們的下一站。
+步行約 5 分鐘。
+
+抵達沙灘後輸入：沙灘到
+⚠️ B組的同學正在往村子的方向走來，記得互相確認人數！</div></div>
+  </div>
+
+  <div class="chat-window">
+    <div class="chat-label">第三階段：海邊活動（50 min）</div>
+    <div class="chat-msg user"><div class="chat-sender">A組學員</div><div class="chat-bubble">沙灘到</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ A組抵達海邊！
+
+教師已在現場，請向教師報到。
+
+🏄 你們即將體驗：
+SUP 立槳（約 20 min）↔ 淨灘記錄（約 20 min）
+全程由教師帶領，請聽從現場指示。
+
+⚠️ 穿好救生衣，不要獨自靠近深水區
+
+活動結束後輸入：海邊完成</div></div>
+    <div class="chat-msg user"><div class="chat-sender">A組學員</div><div class="chat-bubble">海邊完成</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">🎉 A組全程任務完成！
+
+請前往澳口集合點等候 B組。
+
+⏱ 兩組集合後統一回程。
+
+🧭 回程路線：
+原路沿主幹道返回介壽國中小
+預估步行：約 15–20 分鐘
+
+出發前請確認：
+□ 全員到齊
+□ 淨灘記錄表帶好
+□ 剪花作品帶好
+□ 個人物品清點完畢
+
+準備好後輸入：A組回程</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- B組 BOT -->
+  <div class="card-title" style="margin-bottom:.75rem">🔵 B組完整流程（先海後村）</div>
+
+  <div class="chat-window">
+    <div class="chat-label">第一階段：出發導航（介壽國中小 → 牛角沙灘）</div>
+    <div class="chat-msg user"><div class="chat-sender">B組學員</div><div class="chat-bubble">B隊 啟動</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ B組任務啟動——海洋守護者！
+
+你們的目的地是牛角聚落旁的澳口沙灘。
+
+🧭 行進指引：
+從介壽國中小正門出發，與A組同方向，
+沿主幹道往東北走。
+經過馬祖酒廠之後，不要轉進村子，
+繼續往前，沿路跟著「往海邊」的感覺走，
+看到開闊的灣澳沙灘就到了。
+
+⏱ 預估步行：約 15–20 分鐘
+⚠️ 靠右行走，注意來車
+⚠️ 到達前不要靠近水邊，等教師帶領
+
+抵達沙灘後輸入：沙灘到</div></div>
+  </div>
+
+  <div class="chat-window">
+    <div class="chat-label">第二階段：海邊活動（50 min）</div>
+    <div class="chat-msg user"><div class="chat-sender">B組學員</div><div class="chat-bubble">沙灘到</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ B組抵達海邊！
+
+教師已在現場，請向教師報到。
+
+📋 今天的兩個任務：
+🏄 SUP 立槳體驗（約 20 min）
+🌊 淨灘 + SDG14 記錄（約 20 min）
+
+全程由教師帶領，活動結束後輸入：海邊完成</div></div>
+    <div class="chat-msg user"><div class="chat-sender">B組學員</div><div class="chat-bubble">海邊完成</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">🔄 B組互換時間——換你們去村子了！
+
+🔄 互換路線（沙灘 → 村子）：
+從沙灘往內陸走，回到主幹道，
+看到馬祖酒廠後從旁邊小巷轉進去，
+就是牛角聚落入口。
+步行約 5 分鐘。
+
+抵達村口後輸入：村口到
+⚠️ A組的同學正在往沙灘的方向走來，記得互相確認！</div></div>
+  </div>
+
+  <div class="chat-window">
+    <div class="chat-label">第三階段：踏查活動（50 min）</div>
+    <div class="chat-msg user"><div class="chat-sender">B組學員</div><div class="chat-bubble">村口到</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ B組進入踏查模式！
+
+知識卡在你們的指示信裡，共 5 站，順序不限。
+
+🏠 A — 閩東建築
+🏛 B — 廟宇風火山牆
+🎋 C — 做出幼成年禮
+✂️ D — 剪花體驗
+🌱 E — SDGs 社區觀察
+
+完成後輸入：踏查完成</div></div>
+    <div class="chat-msg user"><div class="chat-sender">B組學員</div><div class="chat-bubble">踏查完成</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">🎉 B組全程任務完成！
+
+請走到澳口沙灘集合點，等候 A 組，
+兩組一起確認人數後統一回程。
+
+準備好後輸入：B組回程</div></div>
+  </div>
+
+  <div class="chat-window">
+    <div class="chat-label">回程確認（兩組共用）</div>
+    <div class="chat-msg user"><div class="chat-sender">任一組</div><div class="chat-bubble">A組回程 或 B組回程</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">✅ 收到！出發前請確認：
+□ 全員清點完畢
+□ 淨灘記錄表帶好
+□ 剪花作品帶好
+□ 垃圾不落地
+
+🧭 沿主幹道原路返回介壽國中小
+預估步行：15–20 分鐘
+
+安全返抵後輸入：安全抵達
+一路平安！</div></div>
+    <div class="chat-msg user"><div class="chat-sender">任一組</div><div class="chat-bubble">安全抵達</div></div>
+    <div class="chat-msg bot"><div class="chat-sender">LINE Bot</div><div class="chat-bubble">🏫 歡迎回來！
+
+今天你們走過了牛角的石巷，站上了馬祖的海面。
+
+帶回來的不只是記錄表和剪花，
+還有一個正在努力被記住的村子的故事。
+
+等等我們會一起把兩組的視角拼在一起。</div></div>
+  </div>
+
+  <!-- 關鍵字總表 -->
+  <div class="card-title" style="margin-bottom:.75rem">📋 LINE Bot 關鍵字設定總表</div>
+  <div class="table-wrap">
+    <table class="trigger-table">
+      <thead>
+        <tr>
+          <th>關鍵字（完全比對）</th>
+          <th>觸發時機</th>
+          <th>上午場時間</th>
+          <th>下午場時間</th>
+          <th>適用對象</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="kw">A隊 啟動</span></td><td>說明會結束，A組出發</td><td>9:00</td><td>13:30</td><td>A組</td></tr>
+        <tr><td><span class="kw">B隊 啟動</span></td><td>說明會結束，B組出發</td><td>9:00</td><td>13:30</td><td>B組</td></tr>
+        <tr><td><span class="kw">村口到</span></td><td>抵達牛角村入口</td><td>9:20</td><td>13:50</td><td>A組第一輪 / B組第二輪</td></tr>
+        <tr><td><span class="kw">沙灘到</span></td><td>抵達牛角沙灘</td><td>9:20</td><td>13:50</td><td>B組第一輪 / A組第二輪</td></tr>
+        <tr><td><span class="kw">踏查完成</span></td><td>5站全部完成</td><td>約10:10前</td><td>約14:40前</td><td>A組第一輪 / B組第二輪</td></tr>
+        <tr><td><span class="kw">海邊完成</span></td><td>SUP+淨灘結束</td><td>約10:10前</td><td>約14:40前</td><td>B組第一輪 / A組第二輪</td></tr>
+        <tr><td><span class="kw">A組回程</span></td><td>集合完畢，A組準備返校</td><td>約11:10後</td><td>約15:40後</td><td>A組</td></tr>
+        <tr><td><span class="kw">B組回程</span></td><td>集合完畢，B組準備返校</td><td>約11:10後</td><td>約15:40後</td><td>B組</td></tr>
+        <tr><td><span class="kw">安全抵達</span></td><td>返抵介壽國中小</td><td>11:30前後</td><td>16:00前後</td><td>兩組皆可</td></tr>
+        <tr><td><span class="kw">A站 [任意文字]</span></td><td>A站建築問答回傳</td><td colspan="2" style="text-align:center;color:#999">踏查期間隨時</td><td>踏查組</td></tr>
+        <tr><td><span class="kw">B站 [任意文字]</span></td><td>B站廟宇問答回傳</td><td colspan="2" style="text-align:center;color:#999">踏查期間隨時</td><td>踏查組</td></tr>
+        <tr><td><span class="kw">C站 [任意文字]</span></td><td>C站做出幼反思回傳</td><td colspan="2" style="text-align:center;color:#999">踏查期間隨時</td><td>踏查組</td></tr>
+        <tr><td><span class="kw">D完成</span></td><td>剪花完成確認</td><td colspan="2" style="text-align:center;color:#999">踏查期間隨時</td><td>踏查組</td></tr>
+        <tr><td><span class="kw">E站 [任意文字]</span></td><td>E站社區觀察回傳</td><td colspan="2" style="text-align:center;color:#999">踏查期間隨時</td><td>踏查組</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ⑥ 行進路線 -->
+<section id="routes">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f4ee">🧭</div>
+    <div>
+      <h2>行進路線設計</h2>
+      <small>介壽國中小 → 牛角村 / 沙灘，以及互換動線</small>
+    </div>
+  </div>
+
+  <div class="notice">
+    ⚠️ 以下路線基於地理研究推估，<strong>實地踩線是必要步驟</strong>，請確認酒廠入口位置、分叉地標、沙灘入口和集合點，完成後更新Bot指引中的地標描述。
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="card-title" style="margin-bottom:.75rem">🟢 A組路線｜正門入村</div>
+      <ul class="route-steps">
+        <li class="route-step">
+          <div class="route-dot" style="background:#1a6b4a"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">介壽國中小正門</div>
+            <div class="route-step-body">輸入「A隊 啟動」，Bot發送第一段導航</div>
+          </div>
+        </li>
+        <li class="route-step">
+          <div class="route-dot" style="background:#2d8a60"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">沿主幹道往東北步行</div>
+            <div class="route-step-body">靠右行走，留意來車。沿途觀察環境。</div>
+          </div>
+        </li>
+        <li class="route-step">
+          <div class="route-dot" style="background:#2d8a60"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">地標：馬祖酒廠 + 聞到酒香</div>
+            <div class="route-step-body">看到酒廠招牌，從旁邊小巷左轉進入。</div>
+          </div>
+        </li>
+        <li class="route-step">
+          <div class="route-dot" style="background:#1a6b4a"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">牛角聚落入口</div>
+            <div class="route-step-body">輸入「村口到」，開始踏查任務</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-title" style="margin-bottom:.75rem">🔵 B組路線｜繼續走往海邊</div>
+      <ul class="route-steps">
+        <li class="route-step">
+          <div class="route-dot" style="background:#1a4a6b"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">介壽國中小正門</div>
+            <div class="route-step-body">輸入「B隊 啟動」，Bot發送導航</div>
+          </div>
+        </li>
+        <li class="route-step">
+          <div class="route-dot" style="background:#2a6a8b"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">沿同一主幹道往東北</div>
+            <div class="route-step-body">與A組同路，到酒廠後繼續直走，不轉進村子</div>
+          </div>
+        </li>
+        <li class="route-step">
+          <div class="route-dot" style="background:#2a6a8b"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">地標：經過酒廠後繼續往海邊</div>
+            <div class="route-step-body">看到開闊灣澳與沙灘即為目的地（需實地確認入口）</div>
+          </div>
+        </li>
+        <li class="route-step">
+          <div class="route-dot" style="background:#1a4a6b"></div>
+          <div class="route-step-content">
+            <div class="route-step-title">牛角澳口沙灘</div>
+            <div class="route-step-body">輸入「沙灘到」，向教師報到</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="card-title" style="margin-bottom:.75rem">🔄 互換移動動線</div>
+  <div class="two-col">
+    <div class="card green-accent">
+      <div class="card-title">A組互換：村子 → 沙灘</div>
+      <div class="card-body">走出聚落入口，往澳口方向步行，看到開闊沙灘即到達。步行約5分鐘。輸入「沙灘到」確認。</div>
+    </div>
+    <div class="card blue-accent">
+      <div class="card-title">B組互換：沙灘 → 村子</div>
+      <div class="card-body">從沙灘往內陸走，回到主幹道，看到酒廠後從小巷轉進去，即為聚落入口。步行約5分鐘。輸入「村口到」確認。</div>
+    </div>
+  </div>
+
+  <div class="card amber-accent">
+    <div class="card-title">📍 集合點設定（重要）</div>
+    <div class="card-body">
+      互換前集合點：牛角澳口沙灘（兩組交接時的清點點）<br>
+      回程集合點：同上，兩組全部完成後在此集合，再統一步行返校。<br>
+      <strong>請實地確認集合點位置並拍照存檔，供說明會時投影給學員看。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ 踏查站點 -->
+<section id="stations">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f4ee">🏘</div>
+    <div>
+      <h2>牛角村踏查站點設計</h2>
+      <small>5站無人力駐守，知識卡 + Bot 問答自主完成</small>
+    </div>
+  </div>
+
+  <div class="stations">
+    <div class="station-card">
+      <div class="station-head" style="background:#e8f4ee">
+        <div class="station-num" style="background:#1a6b4a;color:#fff">A</div>
+        <div>閩東建築｜觀察站</div>
+      </div>
+      <div class="station-body">
+        <strong>地點：</strong>任一棟老石屋外觀<br>
+        <strong>設備：</strong>無（純觀察）<br>
+        <strong>任務：</strong>找到印章屋，對照知識卡觀察<br>
+        <strong>問答：</strong>厚牆抵禦什麼？（選擇題，Bot即時給分）<br>
+        <strong>彩蛋：</strong>「馬祖九份」由來補充知識
+      </div>
+    </div>
+
+    <div class="station-card">
+      <div class="station-head" style="background:#fdecea">
+        <div class="station-num" style="background:#8a2a1a;color:#fff">B</div>
+        <div>廟宇風火山牆｜辨識站</div>
+      </div>
+      <div class="station-body">
+        <strong>地點：</strong>五靈公廟（需實地確認廟名）<br>
+        <strong>設備：</strong>無<br>
+        <strong>任務：</strong>站廟正面觀察屋頂<br>
+        <strong>問答：</strong>風火山牆功能 + 波浪數量<br>
+        <strong>加分：</strong>拍照上傳Bot
+      </div>
+    </div>
+
+    <div class="station-card">
+      <div class="station-head" style="background:#e8f0f4">
+        <div class="station-num" style="background:#1a4a6b;color:#fff">C</div>
+        <div>做出幼｜反思站</div>
+      </div>
+      <div class="station-body">
+        <strong>地點：</strong>廟宇前廣場<br>
+        <strong>設備：</strong>無<br>
+        <strong>任務：</strong>閱讀知識卡後思考<br>
+        <strong>問答：</strong>開放式分享（任意文字給分）<br>
+        <strong>重點：</strong>不考知識，考反思能力
+      </div>
+    </div>
+
+    <div class="station-card">
+      <div class="station-head" style="background:#fdf3e3">
+        <div class="station-num" style="background:#8a5a1a;color:#fff">D</div>
+        <div>剪花工藝｜體驗站</div>
+      </div>
+      <div class="station-body">
+        <strong>地點：</strong>無人自取站（固定容器）<br>
+        <strong>設備：</strong>預切半成品 + 安全剪刀<br>
+        <strong>任務：</strong>完成剪花後拍照上傳<br>
+        <strong>帶走：</strong>成品即學員紀念品<br>
+        <strong>備註：</strong>需預備足夠份量
+      </div>
+    </div>
+
+    <div class="station-card" style="grid-column: span 2">
+      <div class="station-head" style="background:#e8f4ee">
+        <div class="station-num" style="background:#1a6b4a;color:#fff">E</div>
+        <div>SDG 11 社區觀察｜反思站（整個聚落）</div>
+      </div>
+      <div class="station-body">
+        <strong>地點：</strong>整個聚落自由觀察，無固定站點<br>
+        <strong>設備：</strong>無<br>
+        <strong>任務：</strong>拍「正在消失」與「被保留」的東西各一，附一句感想<br>
+        <strong>回程用途：</strong>兩組集合時每組口頭分享E站觀察，形成對話
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ 海邊模組 -->
+<section id="beach">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f0f4">🏄</div>
+    <div>
+      <h2>海邊模組架構</h2>
+      <small>SUP + 淨灘，內部子互換制，我們掌握大時間節點</small>
+    </div>
+  </div>
+
+  <div class="notice">
+    海邊模組細節由專業教師主導，我們的工作是確保：①兩組準時抵達 ②互換時間準確 ③教師知道我們的整體時間節點。
+  </div>
+
+  <div class="table-wrap">
+    <table class="timing-table">
+      <thead>
+        <tr>
+          <th>子時段</th>
+          <th>內容</th>
+          <th>時長</th>
+          <th>上午場</th>
+          <th>下午場</th>
+          <th>我們的責任</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-cell">抵達</td>
+          <td>向教師報到，裝備說明</td>
+          <td class="dur-cell">≈ 8 min</td>
+          <td>9:20 / 10:20</td>
+          <td>13:50 / 14:50</td>
+          <td>Bot確認「沙灘到」觸發</td>
+        </tr>
+        <tr>
+          <td class="time-cell">第一輪</td>
+          <td>子A SUP / 子B淨灘（教師決定分組）</td>
+          <td class="dur-cell">≈ 20 min</td>
+          <td colspan="2" style="text-align:center;color:#999">教師主導</td>
+          <td>掌握大時間，不介入</td>
+        </tr>
+        <tr>
+          <td class="time-cell">子互換</td>
+          <td>SUP↔淨灘換場</td>
+          <td class="dur-cell">≈ 3 min</td>
+          <td colspan="2" style="text-align:center;color:#999">教師主導</td>
+          <td>教師主導</td>
+        </tr>
+        <tr>
+          <td class="time-cell">第二輪</td>
+          <td>子B SUP / 子A淨灘</td>
+          <td class="dur-cell">≈ 20 min</td>
+          <td colspan="2" style="text-align:center;color:#999">教師主導</td>
+          <td>掌握大時間，不介入</td>
+        </tr>
+        <tr>
+          <td class="time-cell">結束</td>
+          <td>教師宣布、裝備整理</td>
+          <td class="dur-cell">≈ 5 min</td>
+          <td>10:10 / 11:10</td>
+          <td>14:40 / 15:40</td>
+          <td>提醒學員輸入「海邊完成」</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card blue-accent" style="margin-top:1rem">
+    <div class="card-title">教師溝通事項（活動前確認）</div>
+    <div class="card-body">
+      1. 告知教師整體時間結構：<br>
+      　上午場：第一組 9:20 抵達，10:10 離場；第二組 10:20 抵達，11:10 離場<br>
+      　下午場：第一組 13:50 抵達，14:40 離場；第二組 14:50 抵達，15:40 離場<br>
+      2. 確認教師知道「集合點」在哪裡（我們統一在澳口集合後才回程）。<br>
+      3. 確認天候備案：浪況不佳時，SUP改為岸邊平衡練習 + 加長淨灘時間。<br>
+      4. 確認緊急聯絡機制：教師的聯絡方式提前給帶隊者，反之亦然。
+    </div>
+  </div>
+</section>
+
+<!-- ⑨ 風險檢核 -->
+<section id="risk">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fdecea">⚠️</div>
+    <div>
+      <h2>風險檢核表</h2>
+      <small>活動前必讀，逐項確認</small>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="risk-table">
+      <thead>
+        <tr>
+          <th>風險項目</th>
+          <th>預防措施</th>
+          <th>備案</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-coral">移動途中</span><br>學員迷路或掉隊</td>
+          <td>Bot路線描述含明確地標；每組至少一位幹部同行；每段移動前清點人數</td>
+          <td>帶隊者電話提前告知學員；設「迷路回報」關鍵字觸發緊急回覆</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-coral">網路問題</span><br>訊號不穩，Bot失聯</td>
+          <td>紙本知識卡含所有學習內容；空白記錄表可手寫完成</td>
+          <td>帶隊者持有各組行程紙本；知識卡背面印有緊急聯絡電話</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-coral">海邊活動</span><br>浪況不佳 / 天候異常</td>
+          <td>活動前確認氣象；與SUP教師建立天候備案（岸邊練習）</td>
+          <td>SUP改為岸邊立槳練習 + 延長淨灘時間，總時間不變</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-coral">村落安全</span><br>石階滑倒 / 陡坡</td>
+          <td>說明會提醒：穿包頭鞋、下坡慢行；禁止奔跑於石階</td>
+          <td>隨行急救包；輕傷在地處理，嚴重傷請聯絡119</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-coral">時間超支</span><br>某組活動超時</td>
+          <td>Bot在T+95發送「10分鐘後互換」提醒（需設定定時發送或幹部手動觸發）</td>
+          <td>踏查站點順序不固定，超時時優先完成ABCE，D（剪花）可視時間彈性處理</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-coral">居民互動</span><br>村民對活動有疑慮</td>
+          <td>委託書附說明「本活動已與在地單位聯繫」；告知聯絡人姓名電話</td>
+          <td>學員遇到質疑時回覆「我們是介壽國中小的活動，有問題請聯絡×××」</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-coral">剪花站</span><br>材料不足或剪刀遺失</td>
+          <td>材料包多備20%；剪刀用繩綁在固定容器上</td>
+          <td>材料不夠時一個人剪、其他人觀察並拍照記錄工藝特色</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amber-accent" style="margin-top:1rem">
+    <div class="card-title">📋 行前必做清單</div>
+    <div class="card-body" style="column-count:2;column-gap:2rem">
+      □ 實地踩線（介壽→牛角村→沙灘）<br>
+      □ 確認分叉地標與集合點<br>
+      □ 更新Bot指引中的地標描述<br>
+      □ 與SUP教師確認時間節點<br>
+      □ 知識卡印刷並裁切<br>
+      □ 剪花材料包製作（預切輪廓）<br>
+      □ 淨灘記錄表印刷<br>
+      □ 委託書印刷（建議手寫字體）<br>
+      □ 信封準備（A組綠色 / B組藍色）<br>
+      □ LINE Bot 關鍵字設定完成<br>
+      □ Bot測試（所有關鍵字逐一測試）<br>
+      □ 急救包確認<br>
+      □ 緊急聯絡清單（教師、帶隊者）<br>
+      □ 告知學員重要聯絡電話<br>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem;padding:1.5rem;background:#f5f5f3;border-radius:10px;text-align:center">
+    <div style="font-size:12px;color:#999;margin-bottom:.25rem">B模組規劃文件 ｜ 7 月 3 日</div>
+    <div style="font-size:14px;color:#666;font-weight:500">上午場 8:30–12:00 ／ 下午場 13:00–16:30</div>
+    <div style="font-size:13px;color:#888;margin-top:.25rem">童軍暨戶外教育活動 × 馬祖南竿 × 牛角村 × SDGs</div>
+    <div style="font-size:11px;color:#bbb;margin-top:.5rem">請於活動前確認所有 ⚠️ 標記事項，並依實地踩線結果更新 LINE Bot 指引文字</div>
+  </div>
+</section>
+
+<!-- ⑩ 待確認事項 -->
+<section id="pending">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fdf3e3">🔍</div>
+    <div>
+      <h2>待確認事項</h2>
+      <small>尚未確定、需在活動前釐清的項目，確認後請更新本文件</small>
+    </div>
+  </div>
+
+  <div class="notice">
+    以下項目目前尚未有定論，可能影響活動流程或物資準備，<strong>請於 7/3 前逐項確認並記錄結論</strong>。
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:.75rem">
+
+    <!-- 待確認項目 1 -->
+    <div style="background:#fff;border:1.5px solid #e0c896;border-radius:10px;overflow:hidden">
+      <div style="background:#fdf3e3;padding:.65rem 1.1rem;display:flex;align-items:center;gap:10px">
+        <div style="width:22px;height:22px;border-radius:50%;background:#8a5a1a;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+        <div style="font-weight:700;font-size:14px;color:#8a5a1a">學員午餐安排</div>
+        <div style="margin-left:auto"><span class="badge badge-amber">未確認</span></div>
+      </div>
+      <div style="padding:1rem 1.1rem">
+        <div style="font-size:13px;color:var(--text);margin-bottom:.75rem">
+          上午場（8:30–12:00）與下午場（13:00–16:30）之間有中午休息時段（12:00–13:00），需確認午餐如何安排。
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem">
+          <div style="background:#f5f5f3;border-radius:8px;padding:.75rem 1rem;border:1px solid #ddd">
+            <div style="font-size:12px;font-weight:700;color:#4a4a4a;margin-bottom:.4rem">方案 A｜行動糧</div>
+            <div style="font-size:12px;color:#666;line-height:1.65">上午場結束（11:30）後就地或返校途中自行用餐。需事先準備便當或乾糧，物資需納入行程準備。</div>
+          </div>
+          <div style="background:#f5f5f3;border-radius:8px;padding:.75rem 1rem;border:1px solid #ddd">
+            <div style="font-size:12px;font-weight:700;color:#4a4a4a;margin-bottom:.4rem">方案 B｜返校用餐</div>
+            <div style="font-size:12px;color:#666;line-height:1.65">11:30 返抵學校後於校內用餐，13:00 再出發進行下午場。此方案需確認學校餐廳或備餐安排。</div>
+          </div>
+        </div>
+        <div style="background:#fffdf5;border:1px solid #e8d8a0;border-radius:6px;padding:.6rem .9rem;font-size:12px;color:#8a5a1a">
+          <strong>影響評估：</strong>若採行動糧，需提前準備便當數量並告知學員；若返校用餐，需確認 12:00–13:00 校內有餐食安排，且下午場是否需提前帶隊出發說明。
+        </div>
+        <div style="margin-top:.75rem;display:flex;gap:8px;align-items:center">
+          <div style="font-size:12px;color:#999">確認結論：</div>
+          <div style="flex:1;border-bottom:1px dashed #ccc;height:20px"></div>
+          <div style="font-size:12px;color:#999">確認人：</div>
+          <div style="width:80px;border-bottom:1px dashed #ccc;height:20px"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:1.25rem;background:#f5f5f3;border-radius:8px;padding:.85rem 1.1rem;font-size:13px;color:#888">
+    💡 若有其他待確認事項，請直接在此區域補充，格式可參照上方。目前尚有可能需補充確認的面向包括：場地使用許可、剪花材料來源、SUP教師人數對應、A/B模組是否需要交接物資等。
+  </div>
+</section>
+
+</main>
+</body>
+</html>
